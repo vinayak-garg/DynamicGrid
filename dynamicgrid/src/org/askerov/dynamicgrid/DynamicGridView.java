@@ -65,7 +65,7 @@ public class DynamicGridView extends GridView {
     private List<ObjectAnimator> mWobbleAnimators = new LinkedList<ObjectAnimator>();
     private boolean mHoverAnimation;
     private boolean mReorderAnimation;
-    private boolean mWobbleInEditMode = true;
+    private boolean mWobbleInEditMode = false;
     private boolean mIsEditModeEnabled = true;
 
     private OnScrollListener mUserScrollListener;
