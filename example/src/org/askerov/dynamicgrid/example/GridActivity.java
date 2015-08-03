@@ -26,14 +26,14 @@ public class GridActivity extends Activity {
                 new ArrayList<String>(Arrays.asList(Cheeses.sCheeseStrings)),
                 getResources().getInteger(R.integer.column_count)));
 //        add callback to stop edit mode if needed
-//        gridView.setOnDropListener(new DynamicGridView.OnDropListener()
-//        {
-//            @Override
-//            public void onActionDrop()
-//            {
-//                gridView.stopEditMode();
-//            }
-//        });
+        gridView.setOnDropListener(new DynamicGridView.OnDropListener()
+        {
+            @Override
+            public void onActionDrop()
+            {
+                gridView.stopEditMode();
+            }
+        });
         gridView.setOnDragListener(new DynamicGridView.OnDragListener() {
             @Override
             public void onDragStarted(int position) {
