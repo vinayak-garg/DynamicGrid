@@ -368,7 +368,13 @@ public class DynamicGridView extends GridView {
     private Bitmap getBitmapFromView(View v) {
         Bitmap bitmap = Bitmap.createBitmap(v.getWidth(), v.getHeight(), Bitmap.Config.ARGB_8888);
         Canvas canvas = new Canvas(bitmap);
+        int w = v.getWidth();
+        int h = v.getWidth();
+        final int savedCount = canvas.save(Canvas.CLIP_SAVE_FLAG | Canvas.MATRIX_SAVE_FLAG);
+        canvas.scale(0.84f, 0.84f, w/2, h/2);
+        canvas.rotate(12.5f, w/2, h/2);
         v.draw(canvas);
+        canvas.restoreToCount(savedCount);
         return bitmap;
     }
 
