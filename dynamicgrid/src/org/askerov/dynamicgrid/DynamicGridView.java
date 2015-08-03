@@ -982,19 +982,19 @@ public class DynamicGridView extends GridView {
 
     public interface OnDragListener {
 
-        public void onDragStarted(int position);
+        void onDragStarted(int position);
 
-        public void onDragPositionsChanged(int oldPosition, int newPosition);
+        void onDragPositionsChanged(int oldPosition, int newPosition);
     }
 
     public interface OnEditModeChangeListener {
-        public void onEditModeChanged(boolean inEditMode);
+        void onEditModeChanged(boolean inEditMode);
     }
 
     public interface OnSelectedItemBitmapCreationListener {
-        public void onPreSelectedItemBitmapCreation(View selectedView, int position, long itemId);
+        void onPreSelectedItemBitmapCreation(View selectedView, int position, long itemId);
 
-        public void onPostSelectedItemBitmapCreation(View selectedView, int position, long itemId);
+        void onPostSelectedItemBitmapCreation(View selectedView, int position, long itemId);
     }
 
 
