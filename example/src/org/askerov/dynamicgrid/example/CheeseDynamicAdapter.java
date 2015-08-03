@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import org.askerov.dynamicgrid.BaseDynamicGridAdapter;
 
@@ -22,8 +23,11 @@ import java.util.List;
  * Time: 10:56 PM
  */
 public class CheeseDynamicAdapter extends BaseDynamicGridAdapter {
-    public CheeseDynamicAdapter(Context context, List<?> items, int columnCount) {
+    private final int SIZE;
+
+    public CheeseDynamicAdapter(Context context, List<?> items, int columnCount, int itemSize) {
         super(context, items, columnCount);
+        SIZE = itemSize;
     }
 
     @Override
@@ -47,6 +51,9 @@ public class CheeseDynamicAdapter extends BaseDynamicGridAdapter {
         private CheeseViewHolder(View view) {
             titleText = (TextView) view.findViewById(R.id.item_title);
             image = (ImageView) view.findViewById(R.id.item_img);
+            //RelativeLayout layout = (RelativeLayout)view.findViewById(R.id.item_layout);
+            image.getLayoutParams().width = SIZE;
+            image.getLayoutParams().height = SIZE;
         }
 
         void build(String title) {

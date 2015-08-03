@@ -3,6 +3,7 @@ package org.askerov.dynamicgrid.example;
 import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Display;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Toast;
@@ -21,10 +22,18 @@ public class GridActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_grid);
+
+        Display display = getWindowManager().getDefaultDisplay();
+        android.graphics.Point size = new android.graphics.Point();
+        display.getSize(size);
+        int columnCount = getResources().getInteger(R.integer.column_count);
+        int itemMargin = (int)getResources().getDimension(R.dimen.item_margin);
+        int itemSize = (size.x - (columnCount+1)*itemMargin)/columnCount;
+
         gridView = (DynamicGridView) findViewById(R.id.dynamic_grid);
         gridView.setAdapter(new CheeseDynamicAdapter(this,
                 new ArrayList<String>(Arrays.asList(Cheeses.sCheeseStrings)),
-                getResources().getInteger(R.integer.column_count)));
+                columnCount, itemSize));
 //        add callback to stop edit mode if needed
         gridView.setOnDropListener(new DynamicGridView.OnDropListener()
         {
